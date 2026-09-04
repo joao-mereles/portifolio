@@ -1,27 +1,91 @@
-/*************** 
-   variaveis de estilizaçao 
-   paleta de cores: #06141B PINTEREST
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-
+/*==============================================
+variavéis de estilização
+paleta de cores: #021024/#052659/ #5483B3/ #7DA0CA /#C1E8FF
 */
+:root { /*cores*/
+--cor-fundo: #DAF1DE;
+--cor-texto : red;
+--cor-borda:black;  
+ --cor-texto-variaçao: #000000;
 
+/*fontes*/  
+--fonte-titulo: "space grostesk";
+--fonte-texto: "tahoma";
+}
+/*=limpar margem */
+*{
+  margin: 0;
+  padding: 0;
+}
 
+/*configuração de rolagem de pagina*/
+html{
+  scroll-behavior: smooth;
+}
+/*=========================================================*/
+/*estilização do body*/
+body{
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  line-height: 1.5;
+  
+} 
+/*limpar comfiguraçao padroes do links*/
+a{
+  text-decoration: none;
+  color: inherit;
 
-
+}
 h1{
-    color: rgb(14, 204, 204);
+  color: blue;
+}
+
+/*========================================
+cabeçalho da pagina 
+*/
+.cabecalho{
+ position: sticky;
+ background-color:rgba(245,247,250,0.85);
+ backdrop-filter: blur(8px);
+ top: 0;
+ z-index: 100;
+ border-bottom: 1px solid var (--cor-borda);
+ 
+}
+.cabecalho .conteiner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 100px;
+}
+.menu{
+  display: flex;
+  gap: 32px;
+  }
+.menu a{
+  font-size: 20px;
+  padding-bottom: 4px;
+  position: relative;
+}
+.menu a::after{
+  content:"";
+  left:0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+background-color: var(--cor-texto-variaçao);
+transition: widt 0.25s ease;
+position: absolute;
+}
+.menu a:hover::after{
+  width: 100%;
+
+}
+.nome {
+font-family: var(--fonte-texto);
+font-size: 28px;
+font-weight: bold;
+}
+.nome span{
+  color: var(--cor-texto-variaçao);
 }
