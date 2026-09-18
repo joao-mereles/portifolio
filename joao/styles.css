@@ -1,0 +1,328 @@
+/*=================================
+    Variavéis de estilização
+    Paleta de Cores: #998b82 Marrom / #fca89d Rosa / #ffe1c9 Creme / #afc7b9 Verde Bebê
+*/
+:root {
+    /*Cores*/
+     --cor-fundo: #0d1b2a;
+    --cor-fundo-alt: #1b263b;
+    --cor-texto: #e0e1dd;
+    --cor-borda: #415a77;
+    --cor-texto-variacao: #415a77;
+    --cor-texto-suave: #e0e1dd;
+    --cor-titulo-tag: #ff5d5d;
+    --cor-primaria: #ff5d5d;
+    --cor-primaria-clara: #ff5d5d;
+    
+    /*Fontes*/
+    --fonte-titulo: "Space Grotesk";
+    --fonte-texto: "Tahoma";
+    --fonte-mono: "JetBrains Mono"
+}
+/*=================================*/
+/*Limpa as margens e espaçamentos da página*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Configuração da rolagem da página*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*ESTILIZAÇÃO DO BODY*/
+body{
+    font-family: var(--fonte-texto);
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+/*Limpa a configuração padrão dos links*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Estilização padrão dos títulos tipo "tag HTML" de cada seção*/
+.tag-secao{
+    display: inline-block;
+    font-family: var(--fonte-mono);
+    font-size: 26px;
+    color: var(--cor-titulo-tag);
+    background-color: rgba(15,157,139,0.1);
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+/*Estilização padrão para os CONTAINER do main*/
+.container{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0;
+    padding: 0 24px;
+}
+
+/*Estilização padrão de botões*/
+.botao{
+    display: inline-block;
+    font-family: var(--fonte-texto);
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.botao:hover{
+    transform: translateY(-2px); /*sobe o botão 2px quando passar o mouse*/
+}
+/*Estilo do primeiro botão*/
+.botao-primario{
+    background-color: var(--cor-titulo-tag);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(15,157,139,0.35);
+}
+.botao-primario:hover{
+    background-color: var(--cor-primaria-clara);
+}
+/*Estilo do segundo botão*/
+.botao-secundario{
+    border: 2px solid var(--cor-borda);
+    color: var(--cor-texto);
+}
+.botao-secundario:hover{
+    border-color: var(--cor-titulo-tag);
+    color: var(--cor-titulo-tag);
+}
+/*Estilização padrão para o título da seção*/
+.titulo-secao {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+/*Estilização padrão para o sub-título da seção*/
+.subtitulo-secao {
+  color: var(--cor-texto-suave);
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+/*==============CABEÇALHO DA PÁGINA===================*/
+.cabecalho{
+    position: sticky;
+    background-color: rgba(245,247,250,0.85);
+    backdrop-filter: blur(8px);
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--cor-borda);
+}
+.cabecalho .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+.menu a{
+    font-size: 20px;
+    padding-bottom: 4px;
+    position: relative;
+    color :#ff5d5d
+}
+.menu a::after{
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-texto-variacao);
+    transition: width 0.25s ease;
+    position: absolute;
+}
+.menu a:hover::after{
+    width: 100%;
+}
+
+.nome {
+    font-family: var(--fonte-mono);
+    font-size: 28px;
+    font-weight: bold;
+}
+.nome span{
+    color: var(--cor-texto-variacao);
+}
+/*=================================*/
+
+/*==============APRESENTAÇÃO===================*/
+.apresentacao{
+    padding: 96px;
+    background-color: var(--cor-fundo);
+}
+.apresentacao .container{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+}
+.apresentacao-titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 45px;
+    margin-bottom: 16px;
+}
+.apresentacao-titulo .destaque{
+    color: var(--cor-titulo-tag);
+}
+.apresentacao-cargo{
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-suave);
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.apresentacao-bio{
+    color: var(--cor-texto-suave);
+    font-size: 20px;
+    max-width: 480px;
+    margin-bottom: 20px;
+}
+.apresentacao-foto img{
+    border-radius: 24px;
+    background-color: rgba(245,247,250,0.85);
+}
+/* --------------------------------------------------------------------------
+  SOBRE MIM
+   Grid de 2 colunas: texto + lista de informações rápidas.
+-------------------------------------------------------------------------- */
+.sobre {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção*/
+  background-color: var(--cor-fundo-alt); /*Fundo branco, destacando esta seção do resto da página*/
+}
+
+.sobre .container > .tag-secao, /*Explicar para os alunos: quando coloca > .tag-secao, estou dizendo que somente o .tag-secao que está dentro de .sobre e .container vai receber a classe abaixo. Os outros não recebem.*/
+.sobre .container > .titulo-secao,
+.sobre .container > .subtitulo-secao {
+  text-align: left; /*Garante alinhamento à esquerda, mesmo que algo mude o padrão no futuro*/
+}
+
+.sobre-grid {
+  display: grid; /*Organiza o conteúdo da seção em colunas*/
+  grid-template-columns: 1.3fr 0.7fr; /*Duas colunas: texto mais larga que a lista de informações*/
+  gap: 40px; /*Espaço entre as duas colunas*/
+}
+
+.sobre-texto p {
+  margin-bottom: 16px; /*Espaço entre os parágrafos do texto*/
+  color: var(--cor-texto-suave); /*Cor de menor contraste, para o texto corrido*/
+  font-size: 18px;
+}
+
+.info-rapida {
+  background-color: var(--cor-fundo); /*Fundo do cartão de informações rápidas*/
+  border-radius: 16px; /*Arredonda os cantos do cartão*/
+  padding: 32px; /*Espaçamento interno do cartão*/
+}
+
+.info-rapida li {
+  display: flex; /*Alinha o rótulo e o valor lado a lado*/
+  justify-content: space-between; /*Empurra o rótulo para a esquerda e o valor para a direita*/
+  padding: 12px 0; /*Espaço acima e abaixo de cada linha*/
+  border-bottom: 1px solid var(--cor-borda); /*Linha fina separando cada item da lista*/
+  font-size: 18px; /*Tamanho do texto de cada item*/
+}
+
+.info-rapida li:last-child {
+  border-bottom: none; /*Remove a linha do último item, para não sobrar uma borda solta no final*/
+}
+
+.info-rapida .rotulo {
+  color: var(--cor-texto-suave); /*Cor suave, diferenciando o rótulo do valor*/
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 18px; /*Tamanho do texto do rótulo, menor que o valor*/
+}
+/* --------------------------------------------------------------------------
+   FORMAÇÃO ACADÊMICA 
+   -------------------------------------------------------------------------- */
+.formacao {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção*/
+  background-color:#0d1b2a;
+}
+
+.linha-tempo {
+  padding-left: 22px; /*Espaço padrão de uma lista, só o suficiente pro marcador aparecer*/
+}
+
+.item-tempo {
+  margin-bottom: 28px; /*Espaço entre um item da formação e o próximo*/
+}
+
+.item-tempo::marker {
+  color: var(--cor-primaria); /*Pinta o marcador que a lista já desenha sozinha, na cor de destaque do site*/
+  font-size: 1.4em; /*Deixa o marcador um pouco maior, sem precisar mexer no tamanho do texto*/
+}
+
+.periodo {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 13px; /*Tamanho do texto do período*/
+  color: var(--cor-primaria); /*Cor de destaque, chamando atenção pra data*/
+  margin-bottom: 4px; /*Espaço abaixo da data*/
+  }
+
+  /* --------------------------------------------------------------------------
+   CURSOS
+   Grid responsivo: o navegador decide sozinho quantas colunas cabem,
+   com auto-fit + minmax. Chamado de grid "inteligente".
+   -------------------------------------------------------------------------- */
+.cursos {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção*/
+  background-color: var(--cor-fundo-alt); /*Fundo branco, mesma lógica usada em "sobre"*/
+}
+
+.cursos-grid {
+  display: grid; /*Organiza os cursos em grade*/
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /*Cria quantas colunas de ~240px couberem na tela*/
+  gap: 24px; /*Espaço entre os cartões*/
+}
+
+.curso-card {
+  background-color: var(--cor-fundo); /*Fundo salmão do cartão, contrastando com o branco da seção*/
+  border-radius: 16px; /*Arredonda os cantos do cartão*/
+  padding: 28px; /*Espaçamento interno do cartão*/
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /*Anima suavemente a posição e a sombra no hover*/
+}
+
+.curso-card:hover {
+  transform: translateY(-4px); /*Sobe o cartão 4px ao passar o mouse*/
+  box-shadow: 0 8px 24px rgba(16, 24, 40,0.2); /*Adiciona sombra só no hover, dando sensação de profundidade*/
+}
+
+.curso-icone {
+  font-size: 1.6rem; /*Tamanho do emoji/ícone do curso*/
+  margin-bottom: 16px; /*Espaço abaixo do ícone*/
+}
+
+.curso-card h3 {
+  font-size: 1.05rem; /*Tamanho do nome do curso*/
+  margin-bottom: 6px; /*Espaço abaixo do título*/
+}
+
+.curso-card p {
+  color: var(--cor-texto-suave); /*Cor suave para a descrição do curso*/
+  font-size: 0.9rem; /*Tamanho do texto da descrição*/
+  margin-bottom: 16px; /*Espaço abaixo da descrição*/
+}
+
+.curso-carga {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 0.78rem; /*Tamanho do texto da carga horária*/
+  color: var(--cor-titulo-tag); /*Cor de destaque*/
+  background-color: rgba(15, 157, 139, 0.1); /*Fundo claro atrás do texto*/
+  padding: 4px 10px; /*Espaçamento interno, formato de pílula*/
+  border-radius: 6px; /*Arredonda os cantos da etiqueta*/
+}
+
+
+
+
