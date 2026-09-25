@@ -322,7 +322,150 @@ a {
   padding: 4px 10px; /*Espaçamento interno, formato de pílula*/
   border-radius: 6px; /*Arredonda os cantos da etiqueta*/
 }
+/* --------------------------------------------------------------------------
+  PROJETOS
+  Cada projeto é um cartão com imagem, texto e "tags" de tecnologia.
+-------------------------------------------------------------------------- */
+.projetos {
+  padding: 96px 0; /*Espaço interno acima e abaixo da seção*/
+  background-color: #0d1b2a;
+}
 
+.projetos-grid {
+  display: grid; /*Organiza os projetos em grade*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /*Cria quantas colunas de ~300px couberem na tela, sozinho*/
+  gap: 32px; /*Espaço entre os cartões*/
+}
 
+.projeto-card {
+  background-color: var(--cor-fundo-alt); /*Fundo branco do cartão*/
+  border-radius: 16px; /*Arredonda os cantos do cartão*/
+  overflow: hidden; /*Esconde qualquer parte da imagem que ultrapasse os cantos arredondados*/
+  transition: transform 0.2s ease; /*Anima suavemente a posição no hover*/
+}
 
+.projeto-card:hover {
+  transform: translateY(-6px); /*Sobe o cartão 6px ao passar o mouse*/
+   box-shadow: 0 5px 20px var(--cor-primaria-clara); /*Sombra padrão do site, dando profundidade ao cartão*/
 
+}
+
+.projeto-imagem {
+  aspect-ratio: 3 / 2; /*Mantém a proporção 3:2, não importa o tamanho da imagem original*/
+  overflow: hidden; /*Corta qualquer parte da imagem que ultrapasse essa proporção*/
+  DI
+}
+
+.projeto-imagem img {
+  width: 100%; /*Imagem preenche toda a largura do espaço reservado*/
+  height: 100%; /*Imagem preenche toda a altura do espaço reservado*/
+  object-fit: cover; /*Corta a imagem para preencher o espaço, sem distorcer nem esticar*/
+}
+
+.projeto-corpo {
+  padding: 24px; /*Espaçamento interno da parte de texto do cartão*/
+}
+
+.projeto-corpo h3 {
+  font-size: 18px; /*Tamanho do título do projeto*/
+  margin-bottom: 8px; /*Espaço abaixo do título*/
+}
+
+.projeto-corpo p {
+  color: var(--cor-texto-suave); /*Cor suave para a descrição*/
+  font-size: 14px; /*Tamanho do texto da descrição*/
+  margin-bottom: 16px; /*Espaço abaixo da descrição*/
+}
+
+.projeto-tags {
+  display: flex; /*Alinha as etiquetas de tecnologia lado a lado*/
+  flex-wrap: wrap; /*Quebra para a próxima linha se não couberem todas*/
+  gap: 8px; /*Espaço entre as etiquetas*/
+  margin-bottom: 20px; /*Espaço abaixo do grupo de etiquetas*/
+}
+
+.projeto-tags span {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 14px; /*Tamanho do texto de cada etiqueta*/
+  background-color: var(--cor-fundo); /*Fundo da etiqueta*/
+  border: 1px solid var(--cor-borda); /*Contorno sutil*/
+  padding: 4px 10px; /*Espaçamento interno, formato de pílula*/
+  border-radius: 6px; /*Arredonda os cantos da etiqueta*/
+}
+
+.projeto-links {
+  display: flex; /*Alinha os links lado a lado*/
+  gap: 20px; /*Espaço entre os links*/
+  font-size: 14px; /*Tamanho do texto dos links*/
+  font-weight: 600; /*Deixa os links em negrito*/
+}
+
+.projeto-links a {
+  color: var(--cor-primaria); /*Cor de destaque*/
+}
+
+.projeto-links a:hover {
+  text-decoration: underline; /*Sublinha o link ao passar o mouse*/
+}
+
+/* --------------------------------------------------------------------------
+   CONTATO / RODAPÉ
+   Seção escura para fechar o site com contraste em relação ao resto
+   da página, reforçando que é a "última parada".
+-------------------------------------------------------------------------- */
+.contato {
+  padding: 96px 0 48px; /*Três valores: espaço em cima, nos lados (0) e embaixo — menor embaixo por ser a última seção da página*/
+  background-color: var(--cor-texto); /*Fundo escuro, destacando esta seção como o fechamento do site*/
+  color: #ffffff; /*Texto branco, para contrastar com o fundo escuro*/
+  text-align: center; /*Centraliza todo o conteúdo da seção*/
+  background-color: #415a77;
+}
+
+.contato .tag-secao {
+  background-color: rgba(255, 255, 255, 0.1); /*Sobrescreve o fundo padrão da etiqueta por um tom claro e translúcido, adequado ao fundo escuro*/
+}
+
+.contato .titulo-secao {
+  color: #ffffff; /*Sobrescreve a cor do título para branco, já que o padrão é escuro*/
+}
+
+.contato .subtitulo-secao {
+  color: rgba(255, 255, 255, 0.6); /*Branco com transparência, criando um texto mais suave que o título*/
+  margin: 0 auto 40px; /*Centraliza o bloco e adiciona espaço abaixo dele*/
+}
+
+.contato-botoes {
+  display: flex; /*Alinha os botões lado a lado*/
+  justify-content: center; /*Centraliza os botões horizontalmente*/
+  gap: 16px; /*Espaço entre os botões*/
+  margin-bottom: 64px; /*Espaço abaixo do grupo de botões*/
+  flex-wrap: wrap; /*Quebra para a próxima linha em telas menores*/
+}
+
+.redes-sociais {
+  display: flex; /*Alinha os ícones/links de redes sociais lado a lado*/
+  justify-content: center; /*Centraliza o grupo horizontalmente*/
+  gap: 24px; /*Espaço entre os links*/
+  margin-bottom: 40px; /*Espaço abaixo do grupo*/
+}
+
+.redes-sociais a {
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+  font-size: 0.9rem; /*Tamanho do texto de cada link*/
+  color: rgba(255, 255, 255, 0.7); /*Branco quase opaco, legível mas suave*/
+  border: 1px solid rgba(255, 255, 255, 0.2); /*Contorno sutil e translúcido*/
+  padding: 8px 16px; /*Espaçamento interno, formato de pílula*/
+  border-radius: 999px; /*Cantos totalmente arredondados, mesmo truque dos botões*/
+  transition: border-color 0.2s ease, color 0.2s ease; /*Anima suavemente a cor e o contorno no hover*/
+}
+
+.redes-sociais a:hover {
+  border-color: var(--cor-primaria); /*Contorno destaca na cor de destaque do site ao passar o mouse*/
+  color: var(--cor-primaria); /*Texto acompanha a mesma cor*/
+}
+
+.rodape-texto {
+  font-size: 0.8rem; /*Tamanho pequeno, discreto*/
+  color: rgba(255, 255, 255, 0.4); /*Branco bem apagado, o elemento de menor destaque da seção*/
+  font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+}
