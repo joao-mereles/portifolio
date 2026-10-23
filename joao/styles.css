@@ -24,6 +24,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /*Configuração da rolagem da página*/
@@ -210,10 +211,11 @@ a {
 .sobre-grid {
   display: grid; /*Organiza o conteúdo da seção em colunas*/
   grid-template-columns: 1.3fr 0.7fr; /*Duas colunas: texto mais larga que a lista de informações*/
-  gap: 40px; /*Espaço entre as duas colunas*/
+  gap: 48px; /*Espaço entre as duas colunas*/
 }
 
 .sobre-texto p {
+  margin-top: 50px;
   margin-bottom: 16px; /*Espaço entre os parágrafos do texto*/
   color: var(--cor-texto-suave); /*Cor de menor contraste, para o texto corrido*/
   font-size: 18px;
@@ -230,7 +232,7 @@ a {
   justify-content: space-between; /*Empurra o rótulo para a esquerda e o valor para a direita*/
   padding: 12px 0; /*Espaço acima e abaixo de cada linha*/
   border-bottom: 1px solid var(--cor-borda); /*Linha fina separando cada item da lista*/
-  font-size: 18px; /*Tamanho do texto de cada item*/
+  font-size: 16px; /*Tamanho do texto de cada item*/
 }
 
 .info-rapida li:last-child {
@@ -353,7 +355,7 @@ a {
 .projeto-imagem {
   aspect-ratio: 3 / 2; /*Mantém a proporção 3:2, não importa o tamanho da imagem original*/
   overflow: hidden; /*Corta qualquer parte da imagem que ultrapasse essa proporção*/
-  DI
+  
 }
 
 .projeto-imagem img {
@@ -468,4 +470,68 @@ a {
   font-size: 0.8rem; /*Tamanho pequeno, discreto*/
   color: rgba(255, 255, 255, 0.4); /*Branco bem apagado, o elemento de menor destaque da seção*/
   font-family: var(--fonte-mono); /*Fonte monoespaçada, reforçando a estética de código*/
+}
+
+  /* BOTÃO DO MENU MOBILE (HAMBÚRGUER)
+   Por padrão fica escondido — só aparece dentro da media query, quando o
+   menu grande não cabe mais na tela.
+-------------------------------------------------------------------------- */
+.menu-toggle {
+  display: none; /*Escondido no desktop — o menu grande (.menu) já aparece*/
+  font-size: 28px; /*Tamanho do ícone ☰*/
+  background: none; /*Remove o fundo padrão de botão*/
+  border: none; /*Remove a borda padrão de botão*/
+  color: var(--cor-texto); /*Mesma cor usada no resto do cabeçalho*/
+  cursor: pointer; /*Indica que é clicável*/
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVIDADE
+   Media query: a partir daqui, essas regras substituem as de cima — mas só
+   quando a largura da tela for 860px ou menos.
+-------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+
+  /*APRESENTAÇÃO: as duas colunas (texto + foto) viram uma só, empilhadas*/
+  .apresentacao .container {
+    grid-template-columns: 1fr; /*Era 1.1fr 0.9fr (2 colunas) — agora 1 coluna só*/
+    text-align: center; /*Centraliza o texto, já que a foto também fica centralizada*/
+  }
+
+  .apresentacao-texto {
+    min-width: 0; /*Sem isso, um item de grid nunca encolhe menos que o conteúdo mais largo (o título) — e empurra a página pra fora da tela*/
+  }
+
+  .apresentacao-titulo {
+    font-size: 48px; /*Era 80px — grande demais pra uma tela de celular*/
+  }
+
+  .apresentacao-bio {
+    max-width: 100%; /*Era 480px — usa a largura toda disponível*/
+    margin-left: auto; /*Centraliza o bloco de texto*/
+    margin-right: auto;
+  }
+
+  .apresentacao-botoes {
+    justify-content: center; /*Centraliza os botões, já que o texto está centralizado*/
+  }
+
+  .apresentacao-foto {
+    width: 100%; /*Era 70% — ocupa a largura toda, já que não divide mais coluna com o texto*/
+    margin-top: 32px; /*Espaço entre o texto e a foto, agora que estão empilhados*/
+  }
+
+  /*SOBRE MIM: mesma lógica — texto e lista de informações viram 1 coluna*/
+  .sobre-grid {
+    grid-template-columns: 1fr; /*Era 1.3fr 0.7fr — agora empilhados*/
+  }
+
+  /*MENU: esconde o menu grande, mostra o botão hambúrguer no lugar dele*/
+  .menu {
+    display: none; /*Não cabe mais na tela — some até termos JavaScript pra abrir/fechar*/
+  }
+
+  .menu-toggle {
+    display: block; /*Agora aparece, já que o menu grande sumiu*/
+    }
 }
